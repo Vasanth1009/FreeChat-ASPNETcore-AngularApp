@@ -27,6 +27,7 @@
               "src/styles.css"
             ],
             "scripts": []
+               
           },
           "configurations": {
             "production": {
