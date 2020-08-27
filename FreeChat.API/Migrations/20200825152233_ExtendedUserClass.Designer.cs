@@ -3,12 +3,14 @@ using System;
 using FreeChat.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FreeChat.API.Migrations {
     [DbContext (typeof (DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot {
-        protected override void BuildModel (ModelBuilder modelBuilder) {
+    [Migration ("20200825152233_ExtendedUserClass")]
+    partial class ExtendedUserClass {
+        protected override void BuildTargetModel (ModelBuilder modelBuilder) {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation ("ProductVersion", "3.0.0");
@@ -21,7 +23,7 @@ namespace FreeChat.API.Migrations {
                 b.Property<DateTime> ("DateAdded")
                     .HasColumnType ("TEXT");
 
-                b.Property<string> ("Decription")
+                b.Property<string> ("Description")
                     .HasColumnType ("TEXT");
 
                 b.Property<bool> ("IsMain")
