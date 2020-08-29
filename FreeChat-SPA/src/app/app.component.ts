@@ -8,11 +8,15 @@ import {JwtHelperService} from '@auth0/angular-jwt';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  jwtHelper = new JwtHelperService();
 
   constructor(private authService: AuthService) { }
+  
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+  jwtHelper = new JwtHelperService();
 
-  // tslint:disable-next-line: typedef
+   
   ngOnInit() {
     const token = localStorage.getItem('token');
     if (token) {

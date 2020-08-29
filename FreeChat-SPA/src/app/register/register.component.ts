@@ -14,10 +14,10 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
-  // tslint:disable-next-line: typedef
+   
   ngOnInit() {
   }
-  // tslint:disable-next-line: typedef
+   
   register() {
     this.authService.register(this.model).subscribe(() => {
       this.alertify.success('registration successful');
@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  // tslint:disable-next-line: typedef
+   
   cancel() {
     this.cancelRegister.emit(false);
     this.alertify.message('cancelled');

@@ -28,7 +28,12 @@
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+
+            ],
+            "allowedCommonJsDependencies": [
+              "alertifyjs"
+           ]
           },
           "configurations": {
             "production": {
