@@ -29,7 +29,9 @@ namespace FreeChat.API {
                 opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
             services.AddCors ();
-            services.AddAutoMapper(typeof(ChattingRepository).Assembly);
+            services.Configure<CloudinarySettings> (Configuration.GetSection ("CloudinarySettings"));
+            services.AddAutoMapper (typeof (ChattingRepository).Assembly);
+            // services.AddTransient<Seed>();
             services.AddScoped<IAuthRepository, AuthRepository> ();
             services.AddScoped<IChattingRepository, ChattingRepository> ();
             services.AddAuthentication (JwtBearerDefaults.AuthenticationScheme).AddJwtBearer (options => {

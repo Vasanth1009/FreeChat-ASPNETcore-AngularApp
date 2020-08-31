@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using FreeChat.API.Models;
 
-namespace FreeChat.API.Dtos
-{
-    public class UserForDetailedDto
-    {
+namespace FreeChat.API.Dtos {
+    public class UserForDetailedDto {
         public int Id { get; set; }
         public string Username { get; set; }
         public string Gender { get; set; }
