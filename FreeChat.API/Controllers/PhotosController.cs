@@ -16,6 +16,7 @@ namespace FreeChat.API.Controllers {
     [Authorize]
     [Route ("api/users/{userId}/photos")]
     [ApiController]
+    
     public class PhotosController : ControllerBase {
         private readonly IChattingRepository _repo;
         private readonly IMapper _mapper;
