@@ -5,14 +5,18 @@ using System.Threading.Tasks;
 using AutoMapper;
 using FreeChat.API.Data;
 using FreeChat.API.Dtos;
+using FreeChat.API.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FreeChat.API.Controllers {
+namespace FreeChat.API.Controllers 
+{
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route ("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase {
+    public class UsersController : ControllerBase 
+    {
         private readonly IChattingRepository _repo;
         private readonly IMapper _mapper;
         public UsersController (IChattingRepository repo, IMapper mapper) {
