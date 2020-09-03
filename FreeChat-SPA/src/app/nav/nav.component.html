@@ -3,13 +3,13 @@
     <a class="navbar-brand" [routerLink]="['/home']"  >FreeChat</a>
 
     <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="router-link-active">
+      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/members']" >Friends</a>
       </li>
-      <li class="nav-item" routerLinkActive="router-link-active">
+      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/lists']"  >Lists</a>
       </li>
-      <li class="nav-item" routerLinkActive="router-link-active">
+      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/messages']"  >Messages</a>
       </li>
     </ul>

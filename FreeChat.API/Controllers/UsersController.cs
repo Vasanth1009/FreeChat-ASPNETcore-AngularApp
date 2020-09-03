@@ -6,6 +6,7 @@ using AutoMapper;
 using FreeChat.API.Data;
 using FreeChat.API.Dtos;
 using FreeChat.API.Helpers;
+using FreeChat.API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,8 +33,6 @@ namespace FreeChat.API.Controllers
             var userFromRepo = await _repo.GetUser(currentUserId);
             
             userParams.UserId =  currentUserId;
-
-            // userParams.Gender = userFromRepo.Gender;
 
             // if(string.IsNullOrEmpty(userParams.Gender)){
             //     userParams.Gender = userFromRepo.Gender == "male" ? "female" : "male";
@@ -71,6 +70,34 @@ namespace FreeChat.API.Controllers
                 return NoContent ();
 
             throw new Exception ($"Updating user {id} failed to save");
+        }
+
+        [HttpPost("{id}/like/{recipientId}")]
+        public async Task<IActionResult> LikeUser(int id, int recipientId)
+        {
+            if (id != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value))
+                return Unauthorized ();
+
+            var like = await _repo.GetLike(id, recipientId);
+
+            if (like != null)
+                return BadRequest("You already like this person");
+
+            if (await _repo.GetUser(recipientId) == null)
+                return NotFound();
+            
+            like = new Like
+            {
+                LikerId = id,
+                LikeeId =  recipientId
+            };
+
+            _repo.Add<Like>(like);
+
+            if(await _repo.SaveAll())
+                return Ok();
+            
+            return BadRequest("Failed to like person");
         }
 
     }
