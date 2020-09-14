@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FreeChat.API.Migrations
@@ -13,7 +12,7 @@ namespace FreeChat.API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(nullable: true),
                     PasswordHash = table.Column<byte[]>(nullable: true),
                     PasswordSalt = table.Column<byte[]>(nullable: true),
@@ -38,7 +37,7 @@ namespace FreeChat.API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -75,7 +74,7 @@ namespace FreeChat.API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     SenderId = table.Column<int>(nullable: false),
                     RecipientId = table.Column<int>(nullable: false),
                     Content = table.Column<string>(nullable: true),
@@ -107,7 +106,7 @@ namespace FreeChat.API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Url = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     DateAdded = table.Column<DateTime>(nullable: false),
