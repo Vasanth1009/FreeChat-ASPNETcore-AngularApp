@@ -7,3 +7,5 @@ appsettings.json
 wwwroot
 .suo
 *.sqlite
+*.db-shm
+*.db-wal
